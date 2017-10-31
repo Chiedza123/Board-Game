@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="3000">
+    <title>Board Games</title>
+    <link rel="stylesheet" href="Boredgame.css">
+    <script src="Boredgame.js"></script>
+    <meta name="description" content="A free online scorekeeper app. Give each team or player a name. Enter the scores. Share the results.">
+    <meta name="keywords" content="Boardgames, Boredgames,Score, Scorekeeping, Winner, Loser, Games, Competition,">
+    <meta name="author" content="Chiedza Calpurnia Ishemunyoro">    
+</head>
+<body>
+
+
+!-- Static navbar -->
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><i class="fa fa-sliders" aria-hidden="true"></i> keep<span class ="light-blue">the</span>score</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <!-- <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul> -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/new">New game</a></li>
+              <li><a href="/about">About</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <div class="container">
+      
+
+      
+  <h2>Player names</h2>
+  <form action="/players" method=post>
+
+
+      
+      <div class="form-group ">
+        <input class="form-control" id="players-0" name="players-0" placeholder="Player 1" type="text" value="">
+        
+      </div>
+      
+      <div class="form-group ">
+        <input class="form-control" id="players-1" name="players-1" placeholder="Player 2" type="text" value="">
+        
+      </div>
+      
+      <div class="form-group ">
+        <input class="form-control" id="players-2" name="players-2" placeholder="Player 3" type="text" value="">
+        
+      </div>
+      
+      <div class="form-group ">
+        <input class="form-control" id="players-3" name="players-3" placeholder="Player 4" type="text" value="">
+        
+      </div>
+      
+
+      <br>
+      <input type="button" class="btn btn-lg btn-default" value="Back" onClick="history.go(-1);return true;">
+      <button type="submit" class="btn btn-lg btn-primary"  ga-on="click" ga-event-category="UI" ga-event-action="new game 2">Next</button>
+  </form>
+
+
+      <footer class="footer small">
+        <p class="text-center"><i class="fa fa-heart" aria-hidden="true"></i> Missing a feature? <a href="mailto:caspar.wrede@gmail.com">Let us know</a>. 
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+  </body>
+
+  
+  <script type="text/javascript" src="/static/gen/packed.js?451b879d"></script>
+  
+
+  
+      <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-35934020-6', 'auto');
+        // Plugins that autotrack.js uses
+        ga('require', 'eventTracker');
+        ga('require', 'outboundLinkTracker');
+        ga('send', 'pageview');
+      </script>
+      <script async src='https://www.google-analytics.com/analytics.js'></script>
+      <script async src='/static/autotrack.js'></script>
+
+  
+</html>
+
