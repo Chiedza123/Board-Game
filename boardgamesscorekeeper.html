@@ -16,8 +16,7 @@
     <meta name="author" content="Chiedza Calpurnia Ishemunyoro">   
 </head>
 <body>
-
-    
+  
     <nav class="navbar" style="background-color: #1b415e;">  <!--inverse instead of default boostrap-->
       <div class="container-fluid">  <!--Put a logo <div class="navbar-header">-->
         <div class = "navbar-header">
@@ -27,15 +26,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#"><img src="boardgame55551_icon.png" alt="BOARDGAMESSCOREKEEPER"></a>
+              <a class="navbar-brand" href="boardgamesscorekeeper.html"><img src="boardgame55551_icon.png" alt="BOARDGAMESSCOREKEEPER"></a>
         </div>
         <div>
-        <a href="#" class="navbar-brand" style="color: aliceblue;">BOARDGAMESSCOREKEEPER</a>
+        <a href="boardgamesscorekeeper.html" class="navbar-brand" style="color: aliceblue;">BOARDGAMESSCOREKEEPER</a>
         </div>
     
           <div>
           <ul class="nav navbar-nav navbar-left" id="myNavbar">
-          <li><a href="boardgamesscorekeeper.html">HOME</a></li>
+          <li class="active"><a href="boardgamesscorekeeper.html">HOME</a></li>
           <li><a href="newgame.html">NEW GAME</a></li>
           <li><a href="scorekeepingpage.html">LEADER'S BOARD</a></li>
           <li><a href="recentgame.html">RECENT GAME</a></li>
@@ -57,40 +56,28 @@
            </ul>
            </div> 
   </nav>
-
-  <h2>Create a new game</h2>
-  <form action="new.php" method=post>
-    <div class="newgame-form">
-      <input class=
-      "form-control" id="gameName" name="game_name" placeholder="Name of the game" type="text" value="">
-       </div>
-    <div class="newgame-form">
-      <label for="gamePlayerCount"><label for="player_count">Number of players (not more than 15)</label></label>
-      <div class="input-group">
-        <span class="input-group-btn">
-          <button class="player-button btn btn-info" type="button">-</button>
-        </span>
-        <input class="form-control" id="gamePlayerCount" name="player_count" type="text" value="4">
-        <span class="input-group-btn">
-          
-          <button class="player-button btn btn-info" type="button">+</button>
-        </span>
-      </div>
+  <br>    
+  <br>
+  <br>
+  <br>
+  <br>s
+  <br>
+  <br>
+  <div class="background">
+    <div class="transbox">
+       <br>
+      <h1>Keep the Score</h1>
+      <br>
+      <p class="lead">Keep track of games you play with an online scoreboard.<br> Share the scoreboard with other people</p>
       
-    </div>
-
-    <button type="submit" class="btn btn-lg btn-primary"  ga-on="click" ga-event-category="UI" ga-event-action="new game 1">Next</button>
-
-  </form>
-
-
- <footer class="footer small">
-  <p class="text-center"><i class="fa fa-heart" aria-hidden="true"></i> Missing a feature? <a href="cccish@hotmail.com">Let us know</a>. 
-  </p>
-  </footer>
-
-   
+      <p><a class="btn btn-primary btn-lg active" href="newgame.html" role="button" aria-pressed="true">Try it for free!</a></p> <!--describe this bootstrap-->
+      <p><a class="btn btn-secondary btn-lg active" href="scorekeepingpage.html" role="button"  aria-pressed="true">See recent games</a></p>
+      </div>
+  </div>      
+  
 
 
 </body>
 </html>
+   
+  

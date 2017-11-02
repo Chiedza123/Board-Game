@@ -1,0 +1,51 @@
+body{
+  background-color:#ffffff;
+}
+.navbar-brand>img {
+  height: 100%;
+  width: auto;
+}
+
+/*CSS for h1 and p of the home page*/
+div.background{
+  background: url(BoardGame5555.jpg);
+  width: 620px;
+  height: 620px;
+  background-repeat:no-repeat 50% 50%;
+  background-position: absolute;
+  margin: auto;
+  z-index: -1;
+  left: 0; 
+  right: 0;
+  top: 0;
+  bottom: 0;  
+  text-align: center;
+  display: block;
+  line-height: 100px; 
+  
+  
+}
+.background h1{
+  font-size:65px;
+   color:#ffffff;
+   font-weight: bold; 
+   text-align: center;
+}
+.background p {
+   font-size: 20px;
+   font-weight: 200; 
+   color:#ffffff;
+   text-align: center;
+}
+.btn-primary active{
+  background: orange;
+}   
+
+.btn-secondary active{
+  background: #ffffff;
+}
+            
+
+
+
+
