@@ -1,0 +1,66 @@
+Designing the board game score recording website. 
+
+Link 1 
+Home Page/BoardGameScoreKeeper
+1. Text heading 1 (Board Games Score Keeper)
+   Keep track of games you play with an online scoreboard. 
+   Share the scoreboard with other people 
+2. Link ----Try It For Free (Button different color)-----Same As New Game Link 
+3. Link ----See recent games (Button different color) -----Page that accumlates and stored previous games 
+4. Nav ----New Game, Recent Games, Leader's Board, Help 
+5. Image
+6. Revisit link, display your previous games and now many rounds you have played 
+7. Above the revisit link, another link with an option to delete the previous games. 
+
+Link 2
+New Game/Try it for free
+1. Create a new game 
+2. Tab to enter (Name of the game)
+3. Numbers of players (not more than 15)
+4. Tab to enter number of players (with - & + button)
+5. Button to enter next 
+6. Nav ---Home Page  ------Leader's Board----Help
+
+Link 3 
+  Player Names (Form to Fill out)
+1. Player 1 tab 
+2. Player 2 tab 
+3. Player 3 tab 
+4. Player 4 tab 
+5. Back & Next Button, Opposite Each Other, different colours 
+6. Next Button going to Add Scores Page || Back Button Going to Create New Game Page 
+6. Nav ---Home Page ---About ----Recent Games 
+
+Link 4
+Display Scores Pages Before Game Start, Shows you name of the game and also number of players 
+1. Button to ADD SCORES  - links to Add Scores Page 
+2. Name OF the game displayed 
+3. Name of Players displayed 
+4. Total Scores Shown ----All players  0 0 0 0 , displayed initially. 
+
+Link 5 
+Add New Scores 
+1. List Players 0 0 0 0 
+2. Buttons with -10, -5, -1....0......+1 +5 +10
+3. Optional comments tab to add comments 
+4. Back or Save Button 
+
+Link 6
+Display Scores Pages After Game Start, Shows you name of the game and also number of players 
+1. Button to ADD SCORES  - links to Add Scores Page 
+2. Name OF the game displayed 
+3. Name of Players displayed 
+4. Total Scores Shown ----All players  0 1 6 0 , new scores displayed. 
+
+Link 7
+Help Page....put on the footer of all NAV 
+1. Link with email that opens in new browser 
+
+
+
+cd Project 
+cd Board-Game 
+git status 
+git commit -am"the changes you have made"
+git push 
+Get a public/private key 
