@@ -25,6 +25,7 @@ div.background{
   background: url(BoardGame5555.jpg);
   width: 620px;
   height: 620px;
+  border-radius: 30px;
   background-repeat:no-repeat 50% 50%;
   background-position: absolute;
   margin: auto;
