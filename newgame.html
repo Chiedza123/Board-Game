@@ -7,13 +7,15 @@
     <meta http-eqyuiv="refresh" content="3000">
     <title>boardgamesscorekeeper</title>
     <link rel="stylesheet" href="boardgamesscorekeeper.css">
-    <script src="Boredgame.js"></script>
+    <script src="boardgamesscorekeeper.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <meta name="description" content="A free online scorekeeper app. Give each team or player a name. Enter the scores. Share the results.">
     <meta name="keywords" content="Boardgames, Boredgames,Score, Scorekeeping, Winner, Loser, Games, Competition,">
     <meta name="author" content="Chiedza Calpurnia Ishemunyoro">   
+
+    
 </head>
 <body>
 
@@ -57,35 +59,52 @@
            </div> 
       </nav>
     <br>
-    <div class="container">
-    <div class="jumbotron">
+
+
+    <div class="container"> <!-- The w3-Container Class adds a 16px left and right padding to any HTML element. It is the perfect class to use for all HTML container elements like: -->
+    <div class="jumbotron"> <!--A jumbotron indicates a big box for calling extra attention to some special content or information.  
+      A jumbotron is displayed as a grey box with rounded corners. It also enlarges the font sizes of the text inside it.-->
     <h2>Create A New Game</h2>
     </div>
-    <form>
-    <div class="newgame-form">
-    <label for="inputGameName">Name of the game</label> 
-    <input type="text" class="form-control" id="gameName" placeholder="Game Name"  value="">
-    </div>
+  
+    <!-- <form>
+    <label><b>Enter game name</b></label>
+    <input type ="text" name="game name" id="user_input">
+    </form> -->
+
     <br>
-    <div class="newgame-form">
-    <label for="gamePlayerCount">Number of players (not more than 15)</label>
-    <div class="input-group">
-    <span class="input-group-btn">
-    <button class="player-button btn btn-info" type="button">-</button>
-    </span>
-    <input type="number"  class="form-control" id="gamePlayerCount" name="player_count"  value="4">
-   <!--Chang type to text to remove the arrows and have buttons instead -->
-    <span class="input-group-btn">
-    <button class="player-button btn btn-info" type="button">+</button>
-    </span>
-    </div>
-    </div>
-    <br>
-    <button type="submit" class="btn btn-lg btn-primary"  ga-on="click" ga-event-category="UI" ga-event-action="new game 1">Next</button>
-    <!--<button type="submit" class="btn btn-lg btn-primary">Next</button>-->
-  </form>
-    <!--ga-on="click" tracking the event using google analytics, ga-event-category="UI",ga-event-action -->
- </body>
+   
+    <input type='text' id = 'players' />
+    <input type='button' value = 'add to list' id = 'add' >
+    
+    <ul id= 'list'> 
+        
+      <li> <b>Name of players</b></li> 
+    
+        </ul>
+
+       
+ 
+        <script type="text/javascript">
+          document.getElementById('add').onclick = function(){
+          var text = document.getElementById('players').value;
+          console.log('writing to local storage: ' + text)
+          // var node = document.createElement("li");    
+          // var textNode = document.createTextNode(text);    
+          // node.appendChild(textNode);     
+          // document.getElementById('list').appendChild(node);
+          localStorage.setItem('asdfasdf', text);
+        }
+  
+        function load(){
+          var storedValue = localStorage.getItem('asdfasdf')
+          console.log('read from local storage: ' + storedValue)
+          if(storedValue){
+            document.getElementByID('players').value = storedValue;
+          }
+        }
+      </script>
+      </body>
  <br>
  <br>
  <br>

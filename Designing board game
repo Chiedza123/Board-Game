@@ -16,8 +16,15 @@ Link 2
 New Game/Try it for free
 1. Create a new game 
 2. Tab to enter (Name of the game)
-3. Numbers of players (not more than 15)
-4. Tab to enter number of players (with - & + button)
+3. Name of the players displayed on the screen accumilatively.....using js form, append element to form. It needs to be adding fields on the screen (js)
+
+page with list of games that players can select from....stored in local storage, js and know how to call it to the next page (NEW Games ) ...
+
+A table that reads what has been stored....to display from New pages......submit the information from local host and call it ........
+
+data structure.... json ......(0
+
+4. Tab to add players (with - & + button)
 5. Button to enter next 
 6. Nav ---Home Page  ------Leader's Board----Help
 
