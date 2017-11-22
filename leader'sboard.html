@@ -58,34 +58,158 @@
 		  </nav>
 
 		  
-        <div id="register" class="animate form">
-			<form  action="mysuperscript.php" autocomplete="on"> 
-				<h1> Sign up </h1> 
-				<p> 
-					<label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-					<input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
-				</p>
-				<p> 
-					<label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-					<input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
-				</p>
-				<p> 
-					<label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-					<input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
-				</p>
-				<p> 
-					<label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-					<input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
-				</p>
-				<p class="signin button"> 
-					<input type="submit" value="Sign up"/> 
-				</p>
-				<p class="change_link">  
-					Already a member ?
-					<a href="login.html">Log In</a>
-				</p>
-			</form>
-		</div>
-		
+             
+  <h2>Coup</h2>
+  <hr>
+  
+  <div class="text-center add-score">
+    <a class="btn btn-lg btn-primary" href="/7lOOu0_3ilAaYimNEKQ6-5ese/add_round" role="button"  ga-on="click" ga-event-category="UI" ga-event-action="begin add score">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>  Add scores
+    </a>
+  </div>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <td>  </td> <!-- column for rounds -->
+        
+        <th>joh</th>
+        
+        <th>john</th>
+        
+        <th>james</th>
+        
+        <th>muull</th>
+        
+        <td>  </td> <!-- column for delete button -->
+      </tr>
+    </thead>
+
+    <tbody>
+
+        <!-- Show sum if more than 1 round -->
+
+          
+            <tr class="danger">
+            <th>TOTAL SCORE</th>
+            
+                <th> 5 </th>
+            
+                <th> 10 </th>
+            
+                <th> 0 </th>
+            
+                <th> 5 </th>
+            
+            
+                <td></td>
+            </tr>
+            
+
+          
+          
+
+
+        
+            <tr class="active">
+              <td class="text-muted"> <strong>Round 1 </strong><br class="hidden-xs">
+              <small>just now</small> </td>
+              
+                  <td> 5 </td>
+              
+                  <td> 10 </td>
+              
+                  <td> 0 </td>
+              
+                  <td> 5 </td>
+              
+              <td class="close-td">
+                
+                <a href="/7lOOu0_3ilAaYimNEKQ6-5ese/del/224001" data-toggle="tooltip" title="Delete this round" class="close">×</a>
+                
+              </td>
+            </tr>
+
+
+            <!-- Extra line for comment -->
+            
+        
+
+        <!-- Empty state if no rounds present -->
+        
+    </tbody>
+  </table>
+
+  
+  <!-- Sharing UI -->
+  <div class="text-center">
+    <button class="btn btn-default" id="share-scoreboard-btn" role="button"  ga-on="click" ga-event-category="UI" ga-event-action="show share options button">
+        <i class="fa fa-share-square" aria-hidden="true"></i>  Share and export
+    </button>
+  </div>
+  <div class="share-scoreboard" style="display: none">
+    <!-- Load clipboard JS module-->
+    <script src="/static/bower_components/clipboard/dist/clipboard.min.js"></script>
+
+    <br>
+    <br>
+    <p>This link to gives <strong>full access</strong> to this scoreboard:</p>
+    <div class="input-group">
+      <input type="text" class="form-control" id="edit-link" value="https://keepthescore.co/game/7lOOu0_3ilAaYimNEKQ6-5ese" readonly>
+      <div class="input-group-btn">
+        <button class="clip-button btn btn-info" data-clipboard-target="#edit-link" data-toggle="popover" data-placement="top" data-content="Copied!" type="button"  ga-on="click" ga-event-category="UI" ga-event-action="copy share url" ga-event-label="edit">
+          Copy to clipboard
+        </button>
+      </div>
+    </div>
+      <br>
+      <br>
+      <p>This link to gives <strong>read-only access</strong> to this scoreboard. The page will automatically refresh every 30 seconds.</p>
+      <div class="input-group">
+        <input type="text" class="form-control" id="read-link" value="https://keepthescore.co/game/HNjvQL9QUJIb6VQFNXquoiaQr" readonly>
+          <div class="input-group-btn">
+            <button class="clip-button btn btn-info" data-clipboard-target="#read-link" data-toggle="popover" data-placement="top" data-content="Copied!" type="button"  ga-on="click" ga-event-category="UI" ga-event-action="copy share url" ga-event-label="read-only">
+              Copy to clipboard
+            </button>
+          </div>
+      </div>
+      <br>
+      <br>
+      <div class="text-center">
+      <a class="btn btn-info" href="/game/7lOOu0_3ilAaYimNEKQ6-5ese/download"
+        role="button"  ga-on="click" ga-event-category="UI"
+        ga-event-action="export csv">
+          <i class="fa fa-download" aria-hidden="true"></i>
+            Download (as CSV)</a>
+      </div>
+  </div>
+  <!-- END Sharing UI -->
+  
+
+
+      <footer class="footer small">
+        <p class="text-center"><i class="fa fa-heart" aria-hidden="true"></i> Missing a feature? <a href="mailto:caspar.wrede@gmail.com">Let us know</a>. 
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+  </body>
+
+  
+  <script type="text/javascript" src="/static/gen/packed.js?ffb96ab6"></script>
+  
+
+  
+      <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-35934020-6', 'auto');
+        // Plugins that autotrack.js uses
+        ga('require', 'eventTracker');
+        ga('require', 'outboundLinkTracker');
+        ga('send', 'pageview');
+      </script>
+      <script async src='https://www.google-analytics.com/analytics.js'></script>
+      <script async src='/static/autotrack.js'></script>
+
 </body>
 </html>

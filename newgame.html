@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <meta name="description" content="A free online scorekeeper app. Give each team or player a name. Enter the scores. Share the results.">
     <meta name="keywords" content="Boardgames, Boredgames,Score, Scorekeeping, Winner, Loser, Games, Competition,">
     <meta name="author" content="Chiedza Calpurnia Ishemunyoro">   
@@ -67,43 +68,52 @@
     <h2>Create A New Game</h2>
     </div>
   
-    <!-- <form>
-    <label><b>Enter game name</b></label>
-    <input type ="text" name="game name" id="user_input">
-    </form> -->
-
-    <br>
-   
-    <input type='text' id = 'players' />
-    <input type='button' value = 'add to list' id = 'add' >
     
-    <ul id= 'list'> 
+    <form id ="form2" method ="post">
+        <div class = "gamename">
+        <label><b>Enter Game Name</b></label>
+        <input type ="text" name="game name" placeholder ="Game Name" id="user_input">
+        </div>
+        </form>
+    
+        <br>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <form id="form1" method="post">
+                <div class="playername">
+                    <label for="data[playername][0]">Add Player Name</label>
+                    <input type="text" name="data[playername][0]" placeholder ="Enter player's name"   id="data[playername][0]" />
+                </div>
+                <button id="add-playername">Add Player</button>
+                <br>
+                <br>
+                <input type="submit" value="Submit" />
+            </form>
+    
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#add-playername").click(function(e){
+            e.preventDefault();
+            var numberOfPlayernames = $("#form1").find("input[name^='data[playername]']").length;
+            var label = '<label for="data[playername][' + numberOfPlayernames + ']">Playername ' + (numberOfPlayernames + 1) + '</label> ';
+            var input = '<input type="text" name="data[playername][' + numberOfPlayernames + ']" id="data[playername][' + numberOfPlayernames + ']" />';
+            var removeButton = '<button class="remove-playername">Remove</button>';
+            var html = "<div class='playername'>" + label + input + removeButton + "</div>";
+            $("#form1").find("#add-playername").before(html);
+        });
+    });
+    
+    $(document).on("click", ".remove-playername",function(e){
+        e.preventDefault();
+        $(this).parents(".playername").remove();
+        //update labels
+        $("#form1").find("label[for^='data[playername]']").each(function(){
+            $(this).html("Playername " + ($(this).parents('.playername').index() + 1));
+        });
+    });
+
+
+    </script>
         
-      <li> <b>Name of players</b></li> 
-    
-        </ul>
-
-       
- 
-        <script type="text/javascript">
-          document.getElementById('add').onclick = function(){
-          var text = document.getElementById('players').value;
-          console.log('writing to local storage: ' + text)
-          // var node = document.createElement("li");    
-          // var textNode = document.createTextNode(text);    
-          // node.appendChild(textNode);     
-          // document.getElementById('list').appendChild(node);
-          localStorage.setItem('asdfasdf', text);
-        }
-  
-        function load(){
-          var storedValue = localStorage.getItem('asdfasdf')
-          console.log('read from local storage: ' + storedValue)
-          if(storedValue){
-            document.getElementByID('players').value = storedValue;
-          }
-        }
-      </script>
       </body>
  <br>
  <br>

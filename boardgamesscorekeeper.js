@@ -1,3 +1,9 @@
+
+if (localStorage) {
+ console.log('LocalStorage is supported!');
+} else {
+  console.log('No support. Use a fallback such as browser cookies or store on the server.');
+}
 {/* <script>
     document.getElementById('add').onclick = function(){
     alert(1);
