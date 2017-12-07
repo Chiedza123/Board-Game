@@ -40,7 +40,7 @@
           <li><a href="boardgamesscorekeeper.html">Home</a></li>
           <li><a href="newgame.html">New Game</a></li>
           <li><a href="scorekeepingpage.html">Scoreboard</a></li>
-          <li><a href="recentgame.html">Recent Game</a></li>
+          <li><a href="recentgame.html">Recent Games</a></li>
           </ul>
           </div>
            
@@ -60,38 +60,38 @@
            </div> 
       </nav>
     <br>
-
-
-    <div class="container"> <!-- The w3-Container Class adds a 16px left and right padding to any HTML element. It is the perfect class to use for all HTML container elements like: -->
+   
+	</div> <div class="container"> <!-- The w3-Container Class adds a 16px left and right padding to any HTML element. It is the perfect class to use for all HTML container elements like: -->
     <div class="jumbotron"> <!--A jumbotron indicates a big box for calling extra attention to some special content or information.  
       A jumbotron is displayed as a grey box with rounded corners. It also enlarges the font sizes of the text inside it.-->
     <h2>Create A New Game</h2>
+    </div>     
+    <br>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <form id="form1" method="post">
+    <div class="playername">
+    <label for="data[gamename][0]">Enter Game Name</label>
+    <input type ="text" name="data[gamename][0]" placeholder ="Enter game name" id="data[gamename][0]">
+    <label for="data[playername][0]">Add Player Name</label>
+    <input type="text" name="data[playername][0]" placeholder ="Enter player's name"   id="data[playername][0]" />
     </div>
-  
-    
-    <form id ="form2" method ="post">
-        <div class = "gamename">
-        <label><b>Enter Game Name</b></label>
-        <input type ="text" name="game name" placeholder ="Game Name" id="user_input">
-        </div>
-        </form>
-    
-        <br>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <form id="form1" method="post">
-                <div class="playername">
-                    <label for="data[playername][0]">Add Player Name</label>
-                    <input type="text" name="data[playername][0]" placeholder ="Enter player's name"   id="data[playername][0]" />
-                </div>
-                <button id="add-playername">Add Player</button>
-                <br>
-                <br>
-                <input type="submit" value="Submit" />
-            </form>
-    
+    <button id="add-playername">Add Player</button>
+    <br>
+    <input type="submit" value="Submit"  />
+    <!-- // id="btn_submit" -->
+    </form>  
+          
     <script type="text/javascript">
-    $(document).ready(function(){
-        $("#add-playername").click(function(e){
+    //document.ready event prevents any jQuery code from downloading before the document is finished loading. 
+    $(document).ready(function(){    
+    // "#add-playername" is your element selector (which HTML tag will trigger this). button id
+    // "click" is an event (when the selected element is clicked).
+    // "function(e)" is the event handling function (on event, object is created).
+    // "e" is the object handler (object is made accessible).
+    // "preventDefault()" is a method (function) provided by the object.this prevents the browser from performing the default action for that element.
+  //when user clicks on the button add-player,all an anonymous function, "function(e)", and assign the resulting object to a handler, "e". Now take that handler and call one of its methods, "e.preventDefault()", which should prevent the browser from performing the default action for that element.
+    $("#add-playername").click(function(e){
             e.preventDefault();
             var numberOfPlayernames = $("#form1").find("input[name^='data[playername]']").length;
             var label = '<label for="data[playername][' + numberOfPlayernames + ']">Playername ' + (numberOfPlayernames + 1) + '</label> ';
@@ -104,13 +104,15 @@
     
     $(document).on("click", ".remove-playername",function(e){
         e.preventDefault();
-        $(this).parents(".playername").remove();
-        //update labels
+          // remove PLAYERNAME button.
+        $(this).parents(".playername").remove();//remove playername is connected to this
+         // //The parent() method returns the direct parent element of the selected element.
         $("#form1").find("label[for^='data[playername]']").each(function(){
             $(this).html("Playername " + ($(this).parents('.playername').index() + 1));
         });
     });
 
+    localStorage.setItem("key", "value");
 
     </script>
         
