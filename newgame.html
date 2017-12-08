@@ -69,52 +69,62 @@
     <br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <form id="form1" method="post">
-    <div class="playername">
-    <label for="data[gamename][0]">Enter Game Name</label>
-    <input type ="text" name="data[gamename][0]" placeholder ="Enter game name" id="data[gamename][0]">
-    <label for="data[playername][0]">Add Player Name</label>
-    <input type="text" name="data[playername][0]" placeholder ="Enter player's name"   id="data[playername][0]" />
-    </div>
-    <button id="add-playername">Add Player</button>
-    <br>
-    <input type="submit" value="Submit"  />
-    <!-- // id="btn_submit" -->
-    </form>  
-          
-    <script type="text/javascript">
-    //document.ready event prevents any jQuery code from downloading before the document is finished loading. 
-    $(document).ready(function(){    
-    // "#add-playername" is your element selector (which HTML tag will trigger this). button id
-    // "click" is an event (when the selected element is clicked).
-    // "function(e)" is the event handling function (on event, object is created).
-    // "e" is the object handler (object is made accessible).
-    // "preventDefault()" is a method (function) provided by the object.this prevents the browser from performing the default action for that element.
-  //when user clicks on the button add-player,all an anonymous function, "function(e)", and assign the resulting object to a handler, "e". Now take that handler and call one of its methods, "e.preventDefault()", which should prevent the browser from performing the default action for that element.
-    $("#add-playername").click(function(e){
-            e.preventDefault();
-            var numberOfPlayernames = $("#form1").find("input[name^='data[playername]']").length;
-            var label = '<label for="data[playername][' + numberOfPlayernames + ']">Playername ' + (numberOfPlayernames + 1) + '</label> ';
-            var input = '<input type="text" name="data[playername][' + numberOfPlayernames + ']" id="data[playername][' + numberOfPlayernames + ']" />';
-            var removeButton = '<button class="remove-playername">Remove</button>';
-            var html = "<div class='playername'>" + label + input + removeButton + "</div>";
-            $("#form1").find("#add-playername").before(html);
-        });
-    });
+    <form id="gamenamePlayername" method="post">
+      <div class="input_fields_wrap">
+        <label for="gamename">Enter Game Name<span>(required, at least 2 characters)</span></label><br>
+        <input type ="text" name="gameName" minlength="2" data-validation="length alphanumeric"  placeholder ="Enter game name" id="gamename" required><br>
+        <!-- default with oftext input field is 20 characters -->  
+        <label for="playername">Add Player Name <span>(required, at least 2 characters)</span></label><br>
+        <div>
+          <button class="add_field_button">Add More Players</button>
+          <div><input type="text" name="mytext[]" minlength="2" data-validation="length alphanumeric" placeholder ="Enter player's name" id="playerName" required ></div>
+        </div>
+        <!-- <input type="button" onclick="myFunction()" value="Submit form"> -->
+      </div>
+      <input type="button" onclick="saveGamePlayernames()" value="Submit form">
+    </form>	
     
-    $(document).on("click", ".remove-playername",function(e){
-        e.preventDefault();
-          // remove PLAYERNAME button.
-        $(this).parents(".playername").remove();//remove playername is connected to this
-         // //The parent() method returns the direct parent element of the selected element.
-        $("#form1").find("label[for^='data[playername]']").each(function(){
-            $(this).html("Playername " + ($(this).parents('.playername').index() + 1));
+      <script>
+         // $("#gamenamePlayername").validate();
+       </script>
+    
+    
+    <script>
+        $(document).ready(function() {
+            var max_fields      = 15; //maximum input boxes allowed
+            var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+            var add_button      = $(".add_field_button"); //Add button ID
+           
+            var x = 1; //initlal text box count
+            $(add_button).click(function(e){ //on add input button click
+                e.preventDefault();
+                if(x < max_fields){ //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+                }
+            });
+           
+            $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+                e.preventDefault(); $(this).parent('div').remove(); x--;
+            })
         });
-    });
-
-    localStorage.setItem("key", "value");
-
-    </script>
+    
+      </script>
+    
+    <script>
+        
+      function saveGamePlayernames() {
+        console.log("saving");
+         var gameNameInput = document.getElementById("gamename");
+       localStorage.setItem("gameName", gameNameInput.value);
+       var  playerNameInput = document.getElementById("playerName");
+       localStorage.setItem("mytext[]",playerNameInput.value);
+       var storedValue1 = localStorage.getItem("gameName");
+       var storedValue2 = localStorage.getItem("mytext[]");
+       console.log("saved");
+      };
+      
+      </script>
         
       </body>
  <br>
