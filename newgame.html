@@ -112,13 +112,19 @@
       </script>
     
     <script>
+        // function saveRow(rowElement) {
+
+        //     var game = FIND THE GAME INPUT <FIELDset:d></FIELDset:d>
+
+        // }
         
       function saveGamePlayernames() {
         console.log("saving");
-         var gameNameInput = document.getElementById("gamename");
-       localStorage.setItem("gameName", gameNameInput.value);
+        var gameNameInput = document.getElementById("gamename");
+       localStorage.setItem("gameName", JSON.stringify(gameNameInput));
        var  playerNameInput = document.getElementById("playerName");
-       localStorage.setItem("mytext[]",playerNameInput.value);
+       localStorage.setItem("mytext[]", JSON.stringify(gameNameInput));
+       // playerNameInput.value
        var storedValue1 = localStorage.getItem("gameName");
        var storedValue2 = localStorage.getItem("mytext[]");
        console.log("saved");
