@@ -68,72 +68,103 @@
     </div>     
     <br>
 
-  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <form id="form1" method="post">
-          <div class="gamename">
-            <label><b>Enter Game Name</b></label>
-            <input type="text" name="game name" placeholder="Game Name" id="user_input">
-          </div>
-        </form>
-        <form id="form2" method="post">
-          <div class="playername">
-            <label for="data[playername][0]">Add Player Name</label>
-            <input type="text" name="data[playername][0]" placeholder="Enter player's name" id="data[playername][0]" />
-          </div>
-          <button id="add-playername">Add Player</button>
-          <br>
-          <br>
-          <input type="submit" value="Submit" />
-        </form>
-        
-        <script>    
+    <form id="gamenamePlayername" method="post">
+      <div class="input_fields_wrap">
+        <label for="gamename">Enter Game Name<span>(required, at least 2 characters)</span></label><br>
+        <input type ="text" name="gameName" minlength="2" data-validation="length alphanumeric"  placeholder ="Enter game name" id="gamename" required><br>
+        <!-- default with oftext input field is 20 characters -->  
+        <label for="playername">Add Player Name <span>(required, at least 2 characters)</span></label><br>
+        <div id="playerslist">
+          <button class="add_field_button">Add More Players</button>
+          <div><input type="text" class= "playernameinput" name="playername[]" minlength="2" data-validation="length alphanumeric" placeholder ="Enter player's name" required ></div>
+        </div>
+        <!-- <input type="button" onclick="myFunction()" value="Submit form"> -->
+      </div>
+      <input type="submit"  value="Submit form">
+    </form>	
+    
+    
+       <script>
+        $(document).ready(function() {
+            var max_fields      = 15; //maximum input boxes allowed
+            var wrapper         = $("#playerslist"); //Fields wrapper
+            var add_button      = $(".add_field_button"); //Add button ID
+           
+            var x = 1; //initlal text box count
+            $(add_button).click(function(e){ //on add input button click
+                e.preventDefault();
+                if(x < max_fields){ //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div><input type="text" class= "playernameinput" name="playername[]"/><class= "playernameinput">Remove</a></div>'); //add input box
+               
+                }
+            });
+           
+            $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+                e.preventDefault(); $(this).parent('div').remove(); x--;
+            })
+        });
 
-$(document).ready(function() {
-  $("#add-playername").click(function(e) {
+
+ $("#gamenamePlayername").submit(function(e){
     e.preventDefault();
-    var numberOfPlayernames = $("#form2").find("input[name^='data[playername]']").length;
-    var label = '<label for="data[playername][' + numberOfPlayernames + ']">Playername ' + (numberOfPlayernames + 1) + '</label> ';
-    var input = '<input type="text" name="data[playername][' + numberOfPlayernames + ']" id="data[playername][' + numberOfPlayernames + ']" />';
-    var removeButton = '<button class="remove-playername">Remove</button>';
-    var html = "<div class='playername'>" + label + input + removeButton + "</div>";
-    $("#form2").find("#add-playername").before(html);
-  });
+   
+
+var game_name=$("#gamenamePlayername #gamename ").val();
+var players = [];
+var playerNamesList=$("#playerslist");
+
+var players_inputs = playerNamesList.find(".playernameinput");
+console.log("Print out the number of input " + players_inputs.length);
+       
+
+$.each(players_inputs, function(){
+    console.log("-");
+    var player = $(this).val();
+    players.push(player);
 });
+console.log(players); 
+var data = {
+    game_name : game_name,
+    players: players
+}
+console.log(data);
 
-$(document).on("click", ".remove-playername", function(e) {
-  e.preventDefault();
-  $(this).parents(".playername").remove(); //remove playername is connected to this
+// save to localstorage
+localStorage.setItem('game_players', JSON.stringify(data) );
+// event.preventDefault();
 
-  $("#form2").find("label[for^='data[playername]']").each(function() {
-    $(this).html("Playername " + ($(this).parents('.playername').index() + 1));
-  });
-});
-  
-    $('#form2').submit(function(){
+ });
 
-    var game_name = $("#form1 #user_input").val();
-    var players = [];
+</script>       
 
-    var players_inputs = $("#form2").find("input[name^='data[playername]']");
+<!--     
+    
+      //   var gameNameInput = document.getElementById("gamename");
+      //   localStorage.setItem("gameName", gameNameInput.value);
+      //   var  playerNameInput = document.getElementById("playerName");
+      //   localStorage.setItem("playername[]",playerNameInput.value);
+      //   var storedValue1 = localStorage.getItem("gameName");
+      //   var storedValue2 = localStorage.getItem("playername[]");
+      //   console.log("saved");
+      // };
 
-    $.each(players_inputs, function(){
-        var player = $(this).val();
-        players.push(player);
-    });
-
-    var data = {
-        game_name : game_name,
-        players: players
-    }
-    console.log(data);
-
-    // save to localstorage
-    localStorage.setItem('game_players', JSON.stringify(data) );
-    event.preventDefault();
-  
-});
-</script>
+         
+        
+      // function saveGamePlayernames() {
+      //   console.log("saving");
+      //   var gameNameInput = document.getElementById("gamename");
+      //  localStorage.setItem("gameName", JSON.stringify(gameNameInput));
+      //  var  playerNameInput = document.getElementById("playerName");
+      //  localStorage.setItem("mytext[]", JSON.stringify(gameNameInput));
+      //  // playerNameInput.value
+      //  var storedValue1 = localStorage.getItem("gameName");
+      //  var storedValue2 = localStorage.getItem("mytext[]");
+      //  console.log("saved");
+      // };
+        -->
+        
       </body>
  <br>
  <br>
